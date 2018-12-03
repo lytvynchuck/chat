@@ -7,6 +7,7 @@
 - npm install
 - npm install -g laravel-echo-server
 - laravel-echo-server init
+- sudo apt install redis-server
 - setup DB_CONNECTION in .env file
 - php artisan migrate
 - php artisan serve
