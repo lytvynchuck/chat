@@ -5,6 +5,8 @@
 - rename .env.example to .env
 - php artisan key:generate
 - npm install
+- npm install -g laravel-echo-server
+- laravel-echo-server init
 - setup DB_CONNECTION in .env file
 - php artisan migrate
 - php artisan serve
