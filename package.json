@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "laravel-echo": "^1.4.1",
+    "redis-server": "^1.2.2",
     "socket.io-client": "^2.1.1"
   }
 }

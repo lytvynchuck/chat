@@ -70,9 +70,10 @@
                     });
                 })
                 .listen('PrivateChat', ({data}) => {
+
                     this.messages.push({
                         message: data.body,
-                        user: data.user_id
+                        user: data.user_name
                     });
                 })
                 .listenForWhisper('typing', (e) => {
@@ -87,7 +88,7 @@
         },
         methods: {
             sendMessage() {
-                axios.post('/messages', {body: this.textMessage, room_id: this.room.id, user_id: this.user.id});
+                axios.post('/messages', {body: this.textMessage, room_id: this.room.id, user_id: this.user.id, user_name: this.user.name});
 
                 this.messages.push({
                     message: this.textMessage,
