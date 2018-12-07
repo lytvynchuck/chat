@@ -70,7 +70,6 @@
                     });
                 })
                 .listen('PrivateChat', ({data}) => {
-                    console.log(data);
                     this.messages.push({
                         message: data.body,
                         user: data.user_data
