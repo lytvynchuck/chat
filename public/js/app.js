@@ -57246,14 +57246,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }).listen('PrivateChat', function (_ref) {
             var data = _ref.data;
 
-
+            console.log(data);
             _this.messages.push({
                 message: data.body,
-                user: data.user_name
+                user: data.user_data
             });
         }).listenForWhisper('typing', function (e) {
             _this.isActive = e;
-
+            console.log(e);
             if (_this.typingTimer) clearTimeout(_this.typingTimer);
 
             _this.typingTimer = setTimeout(function () {
@@ -57264,7 +57264,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         sendMessage: function sendMessage() {
-            axios.post('/messages', { body: this.textMessage, room_id: this.room.id, user_id: this.user.id, user_name: this.user.name });
+            axios.post('/messages', { body: this.textMessage, room_id: this.room.id, user_id: this.user.id, user_data: this.user });
 
             this.messages.push({
                 message: this.textMessage,

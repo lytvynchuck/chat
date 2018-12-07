@@ -70,15 +70,15 @@
                     });
                 })
                 .listen('PrivateChat', ({data}) => {
-
+                    console.log(data);
                     this.messages.push({
                         message: data.body,
-                        user: data.user_name
+                        user: data.user_data
                     });
                 })
                 .listenForWhisper('typing', (e) => {
                     this.isActive = e;
-
+                    console.log(e);
                     if (this.typingTimer) clearTimeout(this.typingTimer);
 
                     this.typingTimer = setTimeout(() => {
@@ -88,7 +88,7 @@
         },
         methods: {
             sendMessage() {
-                axios.post('/messages', {body: this.textMessage, room_id: this.room.id, user_id: this.user.id, user_name: this.user.name});
+                axios.post('/messages', {body: this.textMessage, room_id: this.room.id, user_id: this.user.id, user_data: this.user});
 
                 this.messages.push({
                     message: this.textMessage,
